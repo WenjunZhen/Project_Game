@@ -21,6 +21,7 @@ Game Design:
     Printout message and ask for movement direction:
       If player's location overlaps Goodies' location
         Printout message and ask for goodies selection
+        call chooseGoodie();
         Goodie disappear
         Printout message about player's stat change
       Else is player's new location is empty
@@ -29,7 +30,7 @@ Game Design:
   If monster not exist in player's 3*3 range
     print message that indicate the encounter of monster
     call attack() - compute the hitpoint and attack of monster and player
-      if monster loses, select goodie
+      if monster loses, call chooseGoodie();
       if player loses, game over
 
   
