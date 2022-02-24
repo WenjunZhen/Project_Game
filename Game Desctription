@@ -4,8 +4,33 @@ three types of blocks on the map:
     figure: treasury box
     content: torch, arrow, armor, 
   Monsters: 
+    Name:
+    Hitpoints:
+    Attack:
+    Content
   Empty block:
   
 Player character:
+  figure:
   Hitpoints:
   Attack:
+  Constant visual field: 3 * 3
+  
+Game Design:
+  If monster not exist in player's 3*3 range:
+    Printout message and ask for movement direction:
+      If player's location overlaps Goodies' location
+        Printout message and ask for goodies selection
+        Goodie disappear
+        Printout message about player's stat change
+      Else is player's new location is empty
+        do nothing
+  
+  If monster not exist in player's 3*3 range
+    print message that indicate the encounter of monster
+    call attack() - compute the hitpoint and attack of monster and player
+      if monster loses, select goodie
+      if player loses, game over
+
+  
+  
