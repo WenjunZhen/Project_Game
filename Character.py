@@ -5,6 +5,7 @@ class weapon:
 class character:
     def __init__(self, name, weapon, HP = 100,attack = 5):
         self.name = name
+        self.pic_character = mpimg.imread('character.jpg', format = "jpg").copy()
         self.weapon = weapon
         self.HP = HP
         self.attack = attack
@@ -14,9 +15,13 @@ class character:
         print("HP = ", self.HP)
     def __del__(self):
         return(self.name," You Died!")
-        
-Game_Over = False 
+ 
+class Map:
+    def Create_character(self,character):
+        self.Map[character.x*character.length():(character.x + 1)*character.length(),
+                 character.y*character.width():(character.y + 1)*character.width()] = character.pic() 
 
+Game_Over = False 
 while (Game_Over == False):
     answer = input("Please enter a movement W,A,S,D: ")
     if answer == "W":
