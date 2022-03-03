@@ -55,8 +55,8 @@ class Map:
     ......
     
     def Create_Monster(self,Monster):
-        self.Map[Monster.location()[0]*Monster.length():(Monster.location()[0] + 1)*Monster.length(),
-                 Monster.location()[1]*Monster.width():(Monster.location()[1] + 1)*Monster.width()] = Monster.pic()
+        self.Map[Monster.x*Monster.length():(Monster.x + 1)*Monster.length(),
+                 Monster.y*Monster.width():(Monster.y + 1)*Monster.width()] = Monster.pic()
 
 ################################################################################
 ############################## GENERAL FUNCTIONS ########################################
