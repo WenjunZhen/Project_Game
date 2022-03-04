@@ -68,7 +68,7 @@ class Map:
         for i in range(3):
             self.Map[(i)*self.len_vw+800+200*i:(i+1)*self.len_vw+800+200*i,(0)*self.wid_vw+2400:(1)*self.wid_vw+2400] = self.vw
             for j in range(5):
-                self.wallIndex.append((i*5+4+1+j,12))
+                self.wallIndex.append((i*5+4+i+j,12))
         
         
         self.realMap = self.Map
