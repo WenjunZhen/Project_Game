@@ -8,7 +8,6 @@ class Map:
         self.darkness = mpimg.imread('darkness.jpg', format = "jpg").copy()
         self.floor = mpimg.imread('floor.jpg', format = "jpg").copy()
         self.Map = mpimg.imread('blank.jpg', format = "jpg").copy()
-        self.character = mpimg.imread('character.jpg', format = "jpg").copy()
         self.len_hw, self.wid_hw, self.pixels_hw = self.hw.shape
         self.len_vw, self.wid_vw, self.pixels_vw = self.vw.shape
         self.visiableIndex = {}
@@ -69,15 +68,12 @@ class Map:
             self.Map[(i)*self.len_vw+800+200*i:(i+1)*self.len_vw+800+200*i,(0)*self.wid_vw+2400:(1)*self.wid_vw+2400] = self.vw
             for j in range(5):
                 self.wallIndex.append((i*5+4+i+j,12))
-        
-        
-        self.realMap = self.Map
-        
-        self.Map[0:200,0:200] = self.character
+                
+        self.realMap = self.Map.copy()
         
         #for i in range(24):
-            #for j in range(24):
-                #self.Map[i*self.len_floor:(i+1)*self.len_floor,j*self.wid_floor:(j+1)*self.wid_floor] = self.darkness
+        #    for j in range(24):
+        #       self.Map[i*200:(i+1)*200,j*200:(j+1)*200] = self.darkness
 
     def printMap(self):
         fig, ax = plt.subplots(1,figsize = (10,10))
@@ -89,8 +85,39 @@ class Map:
                 if visiableIndex[(i,j)]:
                     self.Map[i*self.len_floor:(i+1)*self.len_floor,
                              j*self.wid_floor:(j+1)*self.wid_floor] = self.realMap[i*self.len_floor:(i+1)*self.len_floor,
-                                                                                   j*self.wid_floor:(j+1)*self.wid_floor]
+                                                                                   j*self.wid_floor:(j+1)*self.wid_floor]            
+    def Create_Monster(self,Monster):
+                
+        self.Map[Monster.x*200:(Monster.x + 1)*200,
+                 Monster.y*200:(Monster.y + 1)*200] = Monster.pic()
 
+    def Create_character(self,character):
         
-m = Map()
-m.printMap()
+        self.Map[character.x*200:(character.x + 1)*200,
+                 character.y*200:(character.y + 1)*200] = character.pic()
+        
+    def Clean_character_position(self,character):
+        
+        self.Map[character.x*200:(character.x + 1)*200,
+                 character.y*200:(character.y + 1)*200] = self.realMap[character.x*200:(character.x + 1)*200,
+                                                                   character.y*200:(character.y + 1)*200]
+
+    def check_character_position(self, character, direction):
+        x = 0
+        y = 0
+        if direction == "W":
+            x-=1
+        elif direction == "A":
+            y-=1
+        elif direction == "S":
+            x+=1
+        elif direction == "D":
+            y+=1
+        if character.x+x > 23 or character.x+x < 0 or character.y+y > 23 or character.y+y < 0:
+            print(f"You are out of range.")
+            return False
+        elif (character.x+x, character.y+y) in self.wallIndex:
+            print(f"You hit the wall.")
+            return False
+        else:
+            return True
