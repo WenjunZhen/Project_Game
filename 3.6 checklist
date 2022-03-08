@@ -5,9 +5,9 @@ Functions left to implement:
 3, clean up goodie bohua: Done
 4, generate monster wenjun
 5, check if character hit the wall bohua: Done
-6, goodie adds up HP and attack runyu
+6, goodie adds up HP and attack runyu Done
 *7, view scope bohua
-8, create endpoint runyu
+8, create endpoint runyu Done
 *9, print map simutanously runyu
 10, exception handing wenjun
-11, automatically check encounter each time
+11, automatically check encounter each time runyu Done
