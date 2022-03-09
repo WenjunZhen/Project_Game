@@ -78,6 +78,7 @@ class Map:
     def printMap(self):
         fig, ax = plt.subplots(1,figsize = (10,10))
         plt.imshow(self.Map)
+        plt.show() ## this line is being modified
         
     def updateVisiableMap(self):
         for i in range(24):
