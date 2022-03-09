@@ -98,13 +98,14 @@ m.Create_Monster(Monster3)
 
 MonsterList=[Monster1, Monster2, Monster3, EndPoint]
 
-
+def game():
+    while True:
+        m.printMap()
+        Character.show_status()
+        moving(m,Character)
+        m.Create_character(Character)
+        CheckEncounter(MonsterList,Character)
 
 ######################## Game Interface #########################
 
-Character.show_status()
-moving(m,Character)
-m.Create_character(Character)
-CheckEncounter(MonsterList,Character)
-
-m.printMap()
+game()
