@@ -1,6 +1,10 @@
 import matplotlib.image as mpimg 
 from matplotlib import pyplot as plt
 import numpy as np
+
+import Character.py
+import Monster&Goodie.py
+
 class Map:
     '''
     a class for representing map, and it contains some 
