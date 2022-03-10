@@ -91,34 +91,56 @@ class Map:
         '''
         fig, ax = plt.subplots(1,figsize = (10,10))
         plt.imshow(self.Map)
-        plt.show() ## this line is being modified
+        plt.show()
+
         
-    def updateVisiableMap(self):
-        for i in range(24):
-            for j in range(24):
-                if visiableIndex[(i,j)]:
-                    self.Map[i*self.len_floor:(i+1)*self.len_floor,
-                             j*self.wid_floor:(j+1)*self.wid_floor] = self.realMap[i*self.len_floor:(i+1)*self.len_floor,
-                                                                                   j*self.wid_floor:(j+1)*self.wid_floor]            
     def Create_Monster(self,Monster):
-                
+        '''
+        show a Monster in the map based on its position
+        Args:
+            Monster: a Moster object.
+        Return: 
+            None
+        '''        
         self.Map[Monster.x*200:(Monster.x + 1)*200,
                  Monster.y*200:(Monster.y + 1)*200] = Monster.pic()
 
     def Create_character(self,character):
-        
+        '''
+        show a character in the map based on his position.
+        Args:
+            character: a character object.
+        Return: 
+            None
+        ''' 
         self.Map[character.x*200:(character.x + 1)*200,
                  character.y*200:(character.y + 1)*200] = character.pic()
         
     def Clean_character_position(self,character):
-        
+        '''
+        recover the place to floor in the map after the character moves.
+        Args:
+            character: a character object.
+        Return: 
+            None
+        '''
         self.Map[character.x*200:(character.x + 1)*200,
                  character.y*200:(character.y + 1)*200] = self.realMap[character.x*200:(character.x + 1)*200,
                                                                    character.y*200:(character.y + 1)*200]
 
     def check_character_position(self, character, direction):
+        '''
+        check the character if hit the wall or go out of the range.
+        Args:
+            character: a character object.
+            direction: a char which means a direction.
+        Return: 
+            a bool value
+        '''
         x = 0
-        y = 0
+        y = 0                      # initialize x and y to 0
+        
+        # set x and y based on direction
         if direction == "W":
             x-=1
         elif direction == "A":
@@ -127,11 +149,15 @@ class Map:
             x+=1
         elif direction == "D":
             y+=1
+        
+        # check if the character is out of the range.
         if character.x+x > 23 or character.x+x < 0 or character.y+y > 23 or character.y+y < 0:
             print(f"You are out of range.")
             return False
+        # check if the character hits a wall.
         elif (character.x+x, character.y+y) in self.wallIndex:
             print(f"You hit the wall.")
             return False
         else:
             return True
+        
