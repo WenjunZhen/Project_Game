@@ -5,7 +5,10 @@ class weapon:
 class character:
     def __init__(self, name, weapon, HP = 100,attack = 5):
         self.name = name
+        try:
         self.pic_character = mpimg.imread('character.jpg', format = "jpg").copy()
+        except FileNotFoundError:
+            print("We couldn't find this file or directory")
         self.weapon = weapon
         self.HP = HP
         self.attack = attack
