@@ -21,10 +21,13 @@ class Map:
             None
         '''
         # read the images
+        try:
         self.hw = mpimg.imread('hw.jpg', format = "jpg").copy()
         self.vw = mpimg.imread('vw.jpg', format = "jpg").copy()
         self.floor = mpimg.imread('floor.jpg', format = "jpg").copy()
         self.Map = mpimg.imread('blank.jpg', format = "jpg").copy()
+        except FileNotFoundError:
+            print("We couldn't find this file or directory")
         self.len_hw, self.wid_hw, self.pixels_hw = self.hw.shape
         self.len_vw, self.wid_vw, self.pixels_vw = self.vw.shape
         self.wallIndex = []
