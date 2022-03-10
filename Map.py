@@ -3,20 +3,32 @@ from matplotlib import pyplot as plt
 import numpy as np
 class Map:
     def __init__(self):
+        '''
+        Initialize the map, read image:
+        1. hw: horizontal wall (from view of user) with 200*1000 pixels
+        2. vw: vertical wall (from view of user) with 1000*200 pixels
+        3. floor: floor with 200*200 pixels.
+        4. Map: a blank image.
+        then set up map and walls layout, and store walls position in the map
+        finally, store an original map, call it realMap
+        Args:
+            None
+        Return: 
+            None
+        '''
+        # read the images
         self.hw = mpimg.imread('hw.jpg', format = "jpg").copy()
         self.vw = mpimg.imread('vw.jpg', format = "jpg").copy()
-        self.darkness = mpimg.imread('darkness.jpg', format = "jpg").copy()
         self.floor = mpimg.imread('floor.jpg', format = "jpg").copy()
         self.Map = mpimg.imread('blank.jpg', format = "jpg").copy()
         self.len_hw, self.wid_hw, self.pixels_hw = self.hw.shape
         self.len_vw, self.wid_vw, self.pixels_vw = self.vw.shape
-        self.visiableIndex = {}
         self.wallIndex = []
         
+        # fill the map with floor.
         for i in range(24):
             for j in range(24):
                 self.Map[i*200:(i+1)*200,j*200:(j+1)*200] = self.floor
-                self.visiableIndex[(i,j)] = False
         
         
         # outer four horizontal walls
@@ -68,14 +80,15 @@ class Map:
             self.Map[(i)*self.len_vw+800+200*i:(i+1)*self.len_vw+800+200*i,(0)*self.wid_vw+2400:(1)*self.wid_vw+2400] = self.vw
             for j in range(5):
                 self.wallIndex.append((i*5+4+i+j,12))
-                
+        
+        # store an original map, call it realMap 
         self.realMap = self.Map.copy()
         
-        #for i in range(24):
-        #    for j in range(24):
-        #       self.Map[i*200:(i+1)*200,j*200:(j+1)*200] = self.darkness
 
     def printMap(self):
+        '''
+        print the map
+        '''
         fig, ax = plt.subplots(1,figsize = (10,10))
         plt.imshow(self.Map)
         plt.show() ## this line is being modified
