@@ -35,3 +35,16 @@ while (Game_Over == False):
         y-=1
     elif answer == "D":
         x+=1
+        
+################################################# Monster Generator        
+for i in range(30):
+    aa = Monster(np.random.choice(2),np.random.choice(20),"Area1")
+    bb = Monster(random.randrange(5,8),random.randrange(2,9),"Area2")
+    cc = Monster(random.randrange(5,8),random.randrange(14,21),"Area3")
+    dd = Monster(random.randrange(10,16),random.randrange(4,11),"Area4")
+    ee = Monster(random.randrange(10,14),random.randrange(14,19),"Area5")
+    ff = Monster(random.randrange(16,19),random.randrange(2,9),"Area6")
+    gg = Monster(random.randrange(16,19),random.randrange(14,21),"Area7")
+    list = [aa,bb,cc,dd,ee,ff,gg]
+    d = random.choice(list)
+    m.Create_Monster(d)
