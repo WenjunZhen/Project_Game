@@ -2,6 +2,10 @@ import matplotlib.image as mpimg
 from matplotlib import pyplot as plt
 import numpy as np
 class Map:
+    '''
+    a class for representing map, and it contains some 
+    fucntions that can motify the map.
+    '''
     def __init__(self):
         '''
         Initialize the map, read image:
