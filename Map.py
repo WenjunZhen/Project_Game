@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 from Character import weapon, character
-from Monster&Goodie import Monster
+from MonsterAndGoodie import Monster
 
 class Map:
     '''
@@ -171,5 +171,4 @@ class Map:
             return False
         else:
             return True
-
         
