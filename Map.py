@@ -2,8 +2,8 @@ import matplotlib.image as mpimg
 from matplotlib import pyplot as plt
 import numpy as np
 
-import Character.py
-import Monster&Goodie.py
+from Character import weapon, character
+from Monster&Goodie import Monster
 
 class Map:
     '''
