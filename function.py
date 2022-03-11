@@ -39,7 +39,7 @@ def encounter(character, Monster):
             print("Monster attacked you! You now have " + str(character.HP) + " hit points!")
             print("You attacked the monster! It now has " + str(Monster.HP) + " hit points!")
         
-        if Monster.HP>0:
+        if character.HP<=0:
             print("So bad, you died! The Monster still has " + str(Monster.HP) + " more hit points!")
             return    
     
