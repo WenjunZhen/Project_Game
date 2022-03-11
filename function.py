@@ -9,7 +9,7 @@ def moving(m,c):
     m.Clean_character_position(c)
     
 
-    answer = input("Please enter a movement W,A,S,D,E: ")
+    answer = input("Please enter a movement W,A,S,D,E(E to exit): ")
     if m.check_character_position(c, answer):
         if answer == "W":
              c.x-=1
@@ -52,6 +52,7 @@ def encounter(character, Monster):
 　. ⊂　　 ノ* ☆
 ☆ * (つ ノ .☆
 　　 (ノ""")
+                print("Enter E to exit")
                 return
             answer = input("You found a Goodie! Select from 1) Torch, 2) Archor, 3) Armor.")
             if answer == "1":
