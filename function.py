@@ -99,7 +99,7 @@ def game(Map,Character,MonsterList):
     while True:
         Map.printMap()
         Character.show_status()
-        if moving(Map,Character) == 'E':
+        if moving(Map,Character) == 'E' or Character.HP <= 0:
             break
         Map.Create_character(Character)
         CheckEncounter(MonsterList,Character)
