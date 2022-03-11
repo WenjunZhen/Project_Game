@@ -5,11 +5,32 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 class weapon:
+    '''
+    A class represent weapon,getting weapon from killing the monster
+    '''
     def __init__(self,weapon_name,strength):
+        '''
+        Initialize the the weapon
+        Given the name of the weapon and it's strength
+        Args:
+            None
+        Return: 
+            None
+        '''
         self.weapon_name = weapon
         self.strength = strength
 class character:
+    '''
+    A class represent the character, shows the status of the character
+    '''
     def __init__(self, name, weapon, x_col = 0, y_col = 0, HP = 100,attack = 5):
+        '''
+        Initialize the name, read image, HP, attack,x and y of the character
+        Args:
+            None
+        Return: 
+            None
+        '''
         self.name = name
         try:
             self.pic = mpimg.imread('character.jpg', format = "jpg").copy()
@@ -21,6 +42,13 @@ class character:
         self.x = x_col
         self.y=y_col
     def show_status(self):
+        '''
+        Show the status of the character
+        Args:
+            Print out the attack and HP
+        Return: 
+            None
+        '''
         print("Your Status")
         print("Attack = ",self.attack)
         print("HP = ", self.HP)
@@ -37,8 +65,16 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 class Monster:
-
+    '''
+    A class represent the monster, got some attack, HP and position
+    '''
     def __init__(self, x_col, y_col, name, HP = 100, attack = 3):
+        '''
+        Initialize the name, read image:
+        1.pic_monster: The one character going to kill
+        2.pic_goodie: The thing character going to get from killing the monster
+        3.pic_flag: end-point
+        4.boss: 
         self.pic_monster = mpimg.imread('pic_monster.jpg', format = "jpg").copy()
         self.pic_goodie = mpimg.imread('pic_goodie.jpg', format = "jpg").copy()
         self.pic_flag = mpimg.imread('pic_flag.jpg', format = "jpg").copy()
