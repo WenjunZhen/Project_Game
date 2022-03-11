@@ -26,10 +26,10 @@ class Map:
         '''
         # read the images
         try:
-        self.hw = mpimg.imread('hw.jpg', format = "jpg").copy()
-        self.vw = mpimg.imread('vw.jpg', format = "jpg").copy()
-        self.floor = mpimg.imread('floor.jpg', format = "jpg").copy()
-        self.Map = mpimg.imread('blank.jpg', format = "jpg").copy()
+            self.hw = mpimg.imread('hw.jpg', format = "jpg").copy()
+            self.vw = mpimg.imread('vw.jpg', format = "jpg").copy()
+            self.floor = mpimg.imread('floor.jpg', format = "jpg").copy()
+            self.Map = mpimg.imread('blank.jpg', format = "jpg").copy()
         except FileNotFoundError:
             print("We couldn't find this file or directory")
         self.len_hw, self.wid_hw, self.pixels_hw = self.hw.shape
@@ -125,7 +125,7 @@ class Map:
             None
         ''' 
         self.Map[character.x*200:(character.x + 1)*200,
-                 character.y*200:(character.y + 1)*200] = character.pic()
+                 character.y*200:(character.y + 1)*200] = character.pic
         
     def Clean_character_position(self,character):
         '''
@@ -171,4 +171,5 @@ class Map:
             return False
         else:
             return True
+
         
