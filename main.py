@@ -1,4 +1,8 @@
 ######################### run the game ################################
+from Map import Map
+from Character import weapon, character
+from MonsterAndGoodie import Monster
+from function import moving, encounter, CheckEncounter, MonsterGenerator, game
 
 m = Map()
 Weapon = weapon("Weapon",10)
