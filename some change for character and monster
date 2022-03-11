@@ -1,0 +1,97 @@
+1.part for Character.py:
+
+import matplotlib.image as mpimg 
+from matplotlib import pyplot as plt
+import numpy as np
+
+class weapon:
+    def __init__(self,weapon_name,strength):
+        self.weapon_name = weapon
+        self.strength = strength
+class character:
+    def __init__(self, name, weapon, x_col = 0, y_col = 0, HP = 100,attack = 5):
+        self.name = name
+        try:
+            self.pic = mpimg.imread('character.jpg', format = "jpg").copy()
+        except FileNotFoundError:
+            print("We couldn't find this file or directory")
+        self.weapon = weapon
+        self.HP = HP
+        self.attack = attack
+        self.x = x_col
+        self.y=y_col
+    def show_status(self):
+        print("Your Status")
+        print("Attack = ",self.attack)
+        print("HP = ", self.HP)
+        
+
+
+
+
+2.part for MonsterAndGoodie.py:
+
+
+import matplotlib.image as mpimg 
+from matplotlib import pyplot as plt
+import numpy as np
+
+class Monster:
+
+    def __init__(self, x_col, y_col, name, HP = 100, attack = 3):
+        self.pic_monster = mpimg.imread('pic_monster.jpg', format = "jpg").copy()
+        self.pic_goodie = mpimg.imread('pic_goodie.jpg', format = "jpg").copy()
+        self.pic_flag = mpimg.imread('pic_flag.jpg', format = "jpg").copy()
+        self.boss = mpimg.imread('boss.jpg', format = "jpg").copy()
+        self.len_pic_monster, self.wid_pic_monster, self.pixels_pic_goodie = self.pic_monster.shape
+        self.len_pic_goodie, self.wid_pic_goodie, self.pixels_pic_goodie = self.pic_goodie.shape
+        self.x = x_col
+        self.y = y_col
+        self.HP = HP
+        self.attack = attack
+        self.name = name
+    
+    def pic(self):
+        if self.x==23 and self.y==23:
+            if self.HP<=0:
+                return self.pic_flag
+            else:
+                return self.boss
+        else:
+            if self.HP<=0:
+                return self.pic_goodie
+            else:
+                return self.pic_monster
+    
+    def length(self):
+        if self.HP<=0:
+            return self.len_pic_goodie
+        else:
+            return self.len_pic_monster
+        
+    def width(self):
+        if self.HP<=0:
+            return self.wid_pic_goodie
+        else:
+            return self.wid_pic_monster
+    
+    def attack(self):
+        return self.attack
+    
+    def BeAttacked(self,AttackFromCharacter):
+        self.HP = self.HP - AttackFromCharacter
+    
+    def HP(self):
+        return self.HP
+    
+    def name(self):
+        return self.name
+    
+    def x(self):
+        return self.x
+    
+    def y(self):
+        return self.y
+
+
+
