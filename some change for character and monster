@@ -1,4 +1,4 @@
-1.part for Character.py:
+############################ Character.py ##################
 
 import matplotlib.image as mpimg 
 from matplotlib import pyplot as plt
@@ -29,7 +29,7 @@ class character:
 
 
 
-2.part for MonsterAndGoodie.py:
+################## MonsterAndGoodie.py #####################
 
 
 import matplotlib.image as mpimg 
