@@ -85,7 +85,7 @@ def MonsterGenerator(MonsterIndex,MonsterList,Map):
     for i in range(30):
         x = rand.choice(list(range(24)))
         y = rand.choice(list(range(24)))
-        while (x,y) in MonsterIndex or (x,y) in Map.wallIndex:
+        while (x,y) in MonsterIndex or (x,y) in Map.wallIndex or (x,y) == (0,0):
             x = rand.choice(list(range(24)))
             y = rand.choice(list(range(24)))
         new_monster = Monster(x, y, "monster")
