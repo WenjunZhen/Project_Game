@@ -32,13 +32,13 @@ class Monster:
         self.name = name
     
     def pic(self):
-    '''
-    If the position x and y equal to 23 and if the HP less than 0,return pic_flasg or boss, else return pic_goodie or pic_monster
-    Args:
-         Set up and if statement and make one more if statement inside to determine the conditions satifie or not.
-    Return: 
-         return pic_flasg or boss, else return pic_goodie or pic_monster
-    '''
+        '''
+        If the position x and y equal to 23 and if the HP less than 0,return pic_flasg or boss, else return pic_goodie or pic_monster
+        Args:
+             Set up and if statement and make one more if statement inside to determine the conditions satifie or not.
+        Return: 
+             return pic_flasg or boss, else return pic_goodie or pic_monster
+        '''
         if self.x==23 and self.y==23:
             if self.HP<=0:
                 return self.pic_flag
@@ -51,88 +51,87 @@ class Monster:
                 return self.pic_monster
     
     def length(self):
-    '''
-    set up a condition to determine return goodie or monster for length
-    Args:
-         Make an if statement
-    Return: 
-         self.len_pic_goodie or self.len_pic_monster
-    '''
+        '''
+        set up a condition to determine return goodie or monster for length
+        Args:
+             Make an if statement
+        Return: 
+            self.len_pic_goodie or self.len_pic_monster
+        '''
         if self.HP<=0:
             return self.len_pic_goodie
         else:
             return self.len_pic_monster
         
     def width(self):
-    '''
-    set up a condition to determine return goodie or monster for width
-    Args:
-         Make an if statement
-    Return: 
-         self.len_pic_goodie or self.len_pic_monster
-    '''
+        '''
+        set up a condition to determine return goodie or monster for width
+        Args:
+             Make an if statement
+        Return: 
+             self.len_pic_goodie or self.len_pic_monster
+        '''
         if self.HP<=0:
             return self.wid_pic_goodie
         else:
             return self.wid_pic_monster
     
     def attack(self):
-    '''
-    set up monster attack
-    Args:
-         None
-    Return: 
+        '''
+        set up monster attack
+        Args:
+             None
+        Return: 
            self.attack
-    '''
+        '''
         return self.attack
     
     def BeAttacked(self,AttackFromCharacter):
-    '''
-    Getting attack from character
-    Args:
-         Subtrack the HP from the attack damage
-    Return: 
-         None
-    '''
+        '''
+        Getting attack from character
+        Args:
+             Subtrack the HP from the attack damage
+        Return: 
+             None
+        '''
         self.HP = self.HP - AttackFromCharacter
     
     def HP(self):
-    '''
-    Set up HP
-    Args:
-         None
-    Return: 
-           HP
-    '''
+        '''
+        Set up HP
+        Args:
+             None
+        Return: 
+            HP
+        '''
         return self.HP
     
     def name(self):
-    '''
-    set up name
-    Args:
-         None
-    Return: 
-           name
-    '''
+        '''
+        set up name
+        Args:
+             None
+        Return: 
+            name
+        '''
         return self.name
     
     def x(self):
-    '''
-    set up x position
-    Args:
-         None
-    Return: 
-           self.x
-    '''
+        '''
+        set up x position
+        Args:
+             None
+        Return: 
+               self.x
+        '''
         return self.x
     
     def y(self):
-    '''
-    set up y position
-    Args:
-         None
-    Return: 
-           self.y
-    '''
+        '''
+        set up y position
+        Args:
+             None
+        Return: 
+               self.y
+        '''
         return self.y
-
