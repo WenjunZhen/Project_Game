@@ -95,7 +95,7 @@ def MonsterGenerator(MonsterIndex,MonsterList,Map):
         MonsterIndex.append((x,y))
     
 
-def game(Map,Character):
+def game(Map,Character,MonsterList):
     while True:
         Map.printMap()
         Character.show_status()
