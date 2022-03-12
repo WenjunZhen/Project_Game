@@ -1,3 +1,7 @@
+import matplotlib.image as mpimg 
+from matplotlib import pyplot as plt
+import numpy as np
+
 class weapon:
     '''
     A class represent weapon,getting weapon from killing the monster
