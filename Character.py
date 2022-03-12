@@ -21,7 +21,7 @@ class character:
     '''
     A class represent the character, shows the status of the character
     '''
-    def __init__(self, name, weapon, HP = 100,attack = 5):
+    def __init__(self, name, weapon, x_col = 0, y_col = 0, HP = 100,attack = 5):
         '''
         Initialize the name, read image, HP, attack,x and y of the character
         Args:
