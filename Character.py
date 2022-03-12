@@ -31,7 +31,7 @@ class character:
         '''
         self.name = name
         try:
-            self.pic_character = mpimg.imread('character.jpg', format = "jpg").copy()
+            self.pic = mpimg.imread('character.jpg', format = "jpg").copy()
         except FileNotFoundError:
             print("We couldn't find this file or directory")
         self.weapon = weapon
