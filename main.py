@@ -15,4 +15,4 @@ MonsterIndex=[(23,23)]
 MonsterList=[EndPoint]
 MonsterGenerator(MonsterIndex, MonsterList, m)
 # run the game
-game(m, Character)
+game(m, Character, MonsterList)
