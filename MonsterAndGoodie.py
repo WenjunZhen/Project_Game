@@ -1,6 +1,9 @@
 
 ##################################################################################
 ############################## MONSTER CLASS ######################################
+import matplotlib.image as mpimg 
+from matplotlib import pyplot as plt
+import numpy as np
 
 class Monster:
     '''
